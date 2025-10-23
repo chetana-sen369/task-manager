@@ -17,7 +17,7 @@ const App = () => {
     try {
       const res = await fetch('http://127.0.0.1:8000/recommendations');
       const data = await res.json();
-      setRecommendation(data.recommendation || 'No recommendations yet.');
+      setRecommendation(data.recommendation || 'No  tasks to provide recommendations.');
     } catch (error) {
       console.error('Error fetching recommendations:', error);
       setRecommendation('Failed to fetch recommendations.');
