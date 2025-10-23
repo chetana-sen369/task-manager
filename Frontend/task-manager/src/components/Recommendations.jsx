@@ -7,7 +7,14 @@ const Recommendations = ({ recommendation, fetchRecommendations, loading }) => {
       <button onClick={fetchRecommendations} disabled={loading}>
         {loading ? 'Fetching...' : 'Get Recommendation'}
       </button>
-      {recommendation && <p>{recommendation}</p>}
+      {recommendation && (
+  <div className="recommendation-box">
+    {recommendation.split('\n').map((line, index) => {
+      const cleanedLine = line.replace(/\*\*/g, "").replace(/^- /, "• ");
+      return <p key={index}>{cleanedLine}</p>;
+    })}
+  </div>
+)}
     </div>
   );
 };

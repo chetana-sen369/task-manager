@@ -119,3 +119,21 @@ p {
   font-size: 18px;
   font-style: italic;
 }
+
+.recommendation-container {
+  margin-top: 20px;
+}
+
+.recommendation-box {
+  background-color: #f0f4f8;
+  padding: 15px;
+  margin-top: 10px;
+  border-radius: 8px;
+  font-family: 'Segoe UI', sans-serif;
+  white-space: pre-line;
+}
+
+.recommendation-box p {
+  margin: 5px 0;
+  line-height: 1.4;
+}
