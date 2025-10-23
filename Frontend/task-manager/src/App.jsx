@@ -7,19 +7,43 @@ import './App.css';
 
 const App = () => {
   const [refresh, setRefresh] = useState(false);
+  const [recommendation, setRecommendation] = useState('');
+  const [loading, setLoading] = useState(false);
+
   const triggerRefresh = () => setRefresh(!refresh);
 
+  const fetchRecommendations = async () => {
+    setLoading(true);
+    try {
+      const res = await fetch('http://127.0.0.1:8000/recommendations');
+      const data = await res.json();
+      setRecommendation(data.recommendation || 'No recommendations yet.');
+    } catch (error) {
+      console.error('Error fetching recommendations:', error);
+      setRecommendation('Failed to fetch recommendations.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
-    <>
     <div>
       <h1>📝 Task Manager App</h1>
-     <TaskForm fetchTasks={triggerRefresh} />
-    
+
+      <TaskForm fetchTasks={triggerRefresh} />
       <GenerateTaskForm fetchTasks={triggerRefresh} />
-      <TaskList refresh={refresh} />
-      <Recommendations />
+      
+      <TaskList 
+        refresh={refresh} 
+        fetchRecommendations={fetchRecommendations} 
+      />
+
+      <Recommendations
+        recommendation={recommendation}
+        fetchRecommendations={fetchRecommendations}
+        loading={loading}
+      />
     </div>
-    </>
   );
 };
 

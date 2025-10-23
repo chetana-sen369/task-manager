@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const TaskList = ({ refresh }) => {
+const TaskList = ({ refresh,fetchRecommendations }) => {
   const [tasks, setTasks] = useState([]);
   const [editIndex, setEditIndex] = useState(null);
   const [editTitle, setEditTitle] = useState('');
@@ -26,6 +26,7 @@ const TaskList = ({ refresh }) => {
         method: 'DELETE',
       });
       fetchTasks();
+      fetchRecommendations();
     } catch (error) {
       console.error('Error deleting task:', error);
     }
@@ -39,6 +40,7 @@ const TaskList = ({ refresh }) => {
         body: JSON.stringify({ ...task, completed: !task.completed }),
       });
       fetchTasks();
+      fetchRecommendations();
     } catch (error) {
       console.error('Error updating task:', error);
     }
@@ -57,6 +59,7 @@ const TaskList = ({ refresh }) => {
       });
       setEditIndex(null);
       fetchTasks();
+      fetchRecommendations();
     } catch (error) {
       console.error('Error saving edit:', error);
     }
