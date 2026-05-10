@@ -9,7 +9,7 @@ const GenerateTaskForm = ({ fetchTasks }) => {
     setLoading(true);
     setError('');//clear any previous errors
     try {
-      const res = await fetch('http://127.0.0.1:8000/generate_task', {
+      const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/generate_task`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ prompt }),

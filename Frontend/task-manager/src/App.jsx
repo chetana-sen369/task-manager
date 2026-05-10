@@ -15,7 +15,7 @@ const App = () => {
   const fetchRecommendations = async () => {
     setLoading(true);
     try {
-      const res = await fetch('http://127.0.0.1:8000/recommendations');
+      const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/recommendations`);
       const data = await res.json();
       setRecommendation(data.recommendation || 'No  tasks to provide recommendations.');
     } catch (error) {

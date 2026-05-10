@@ -8,7 +8,7 @@ const TaskList = ({ refresh,fetchRecommendations }) => {
 
   const fetchTasks = async () => {
     try {
-      const res = await fetch("http://127.0.0.1:8000/tasks");
+      const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/tasks`);
       const data = await res.json();
       setTasks(data);
     } catch (error) {
@@ -22,7 +22,7 @@ const TaskList = ({ refresh,fetchRecommendations }) => {
 
   const deleteTask = async (taskId) => {
     try {
-      await fetch(`http://127.0.0.1:8000/tasks/${taskId}`, {
+      await fetch(`${import.meta.env.VITE_API_BASE_URL}/tasks/${taskId}`, {
         method: 'DELETE',
       });
       fetchTasks();
@@ -34,7 +34,7 @@ const TaskList = ({ refresh,fetchRecommendations }) => {
 
   const toggleCompleted = async (task) => {
     try {
-      await fetch(`http://127.0.0.1:8000/tasks/${task.id}`, {
+      await fetch(`${import.meta.env.VITE_API_BASE_URL}/tasks/${task.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...task, completed: !task.completed }),
@@ -48,7 +48,7 @@ const TaskList = ({ refresh,fetchRecommendations }) => {
 
   const saveEdit = async (task) => {
     try {
-      await fetch(`http://127.0.0.1:8000/tasks/${task.id}`, {
+      await fetch(`${import.meta.env.VITE_API_BASE_URL}/tasks/${task.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
