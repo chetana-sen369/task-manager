@@ -18,7 +18,7 @@ const TaskList = ({ refresh,fetchRecommendations }) => {
 
   useEffect(() => {
     fetchTasks();
-  }, [refresh]);
+  },[refresh]);
 
   const deleteTask = async (taskId) => {
     try {

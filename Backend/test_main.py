@@ -3,9 +3,11 @@ from fastapi.testclient import TestClient
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from main import app, Base, get_db
-
+from dotenv import load_dotenv
+import os 
+load_dotenv()
 #  Create a temporary SQLite test database
-SQLALCHEMY_DATABASE_URL = "sqlite:///./test_tasks.db"
+SQLALCHEMY_DATABASE_URL = os.getenv("TEST_DATABASE_URL")
 
 engine = create_engine(
     SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False}

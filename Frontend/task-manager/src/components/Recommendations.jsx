@@ -1,5 +1,5 @@
 import React from 'react';
-
+import ReactMarkdown from 'react-markdown';
 const Recommendations = ({ recommendation, fetchRecommendations, loading }) => {
   return (
     <div>
@@ -10,9 +10,19 @@ const Recommendations = ({ recommendation, fetchRecommendations, loading }) => {
       {recommendation && (
   <div className="recommendation-box">
     {recommendation.split('\n').map((line, index) => {
-      const cleanedLine = line.replace(/\*\*/g, "").replace(/^- /, "• ");
-      return <p key={index}>{cleanedLine}</p>;
-    })}
+  const parts = line.split(/(\*\*.*?\*\*)/g); // keep **text**
+
+  return (
+    <p key={index}>
+      {parts.map((part, i) => {
+        if (part.startsWith("**") && part.endsWith("**")) {
+          return <strong key={i}>{part.replace(/\*\*/g, "")}</strong>;
+        }
+        return part;
+      })}
+    </p>
+  );
+})}
   </div>
 )}
     </div>
