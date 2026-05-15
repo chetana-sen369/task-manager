@@ -137,3 +137,85 @@ p {
   margin: 5px 0;
   line-height: 1.4;
 }
+
+/* styles for the devices of different sizes */
+/* Tablet */
+@media (max-width: 768px) {
+  body {
+    padding: 15px;
+  }
+
+  div {
+    width: 100%;
+    padding: 20px;
+  }
+
+  li {
+    flex-wrap: wrap;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  li button {
+    width: auto;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+
+  div {
+    padding: 15px;
+    border-radius: 8px;
+  }
+
+  form {
+    gap: 10px;
+  }
+
+  input[type="text"] {
+    width: 100%;
+    font-size: 0.95rem;
+  }
+
+  button {
+    width: 100%;
+    font-size: 0.95rem;
+    padding: 10px 14px;
+  }
+
+  li {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    padding: 12px;
+  }
+
+  li span {
+    width: 100%;
+    word-break: break-word;
+  }
+
+  li input[type="text"] {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  li button {
+    width: 100%;
+  }
+
+  p {
+    font-size: 16px;
+  }
+}

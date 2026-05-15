@@ -57,9 +57,7 @@ class TaskDB(Task):
 app = FastAPI()
 
 origins = [
-    "http://localhost:5173",
-    "http://127.0.0.1:5173",
-    "https://task-manager-ot2x.vercel.app",
+     FRONTEND_URL,
 ]
 
 app.add_middleware(
