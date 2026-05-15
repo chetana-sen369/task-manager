@@ -17,7 +17,7 @@ const GenerateTaskForm = ({ fetchTasks }) => {
 
       if (!res.ok) {
         const errorData = await res.json();
-        throw new Error(errorData.detail || 'Failed to generate task');
+        throw new Error(errorData.detail || "Couldn't generate task . Please try again later! ");
       }
       //clear the error when the request is successfull 
       setError('');
