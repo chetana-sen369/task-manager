@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 /* Reset & base */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -7,6 +11,7 @@ body {
   color: #333;
   min-height: 100vh;
 }
+
 h1 {
   text-align: center;
   color: #222;
@@ -14,6 +19,7 @@ h1 {
 }
 
 div {
+  width: 100%;
   max-width: 700px;
   margin: 0 auto;
   background: rgba(255,255,255,0.3);
@@ -25,14 +31,16 @@ div {
 /* Form */
 form {
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
   gap: 12px;
   margin-bottom: 25px;
+  width: 100%;
 }
 
 input[type="text"] {
-  flex: 1;
-  background:rgba(255,255,255,0.6);
+  width: 100%;
+  max-width: 100%;
+  background: rgba(255,255,255,0.6);
   padding: 10px 15px;
   border: 1.2px solid #ccc;
   border-radius: 6px;
@@ -46,6 +54,7 @@ input[type="text"]:focus {
 }
 
 button {
+  width: 100%;
   padding: 12px 18px;
   background: #8441A4;
   border: 1.5px solid #bbb;
@@ -64,6 +73,7 @@ button:hover {
 ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 li {
@@ -76,12 +86,14 @@ li {
   justify-content: space-between;
   gap: 15px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  margin-top: 10px;
 }
 
 li span {
   flex: 1;
   font-size: 1rem;
   color: #333;
+  word-break: break-word;
 }
 
 li span.completed {
@@ -92,6 +104,8 @@ li span.completed {
 
 li input[type="text"] {
   flex: 1;
+  width: 100%;
+  max-width: 100%;
   margin-right: 10px;
   border: 1px solid #ccc;
   border-radius: 6px;
@@ -100,6 +114,7 @@ li input[type="text"] {
 }
 
 li button {
+  width: auto;
   padding: 6px 14px;
   font-size: 0.9rem;
   border: 1.2px solid #ccc;
@@ -131,6 +146,7 @@ p {
   border-radius: 8px;
   font-family: 'Segoe UI', sans-serif;
   white-space: pre-line;
+  overflow-wrap: break-word;
 }
 
 .recommendation-box p {
@@ -138,7 +154,6 @@ p {
   line-height: 1.4;
 }
 
-/* styles for the devices of different sizes */
 /* Tablet */
 @media (max-width: 768px) {
   body {
@@ -152,14 +167,6 @@ p {
 
   li {
     flex-wrap: wrap;
-  }
-
-  button {
-    width: 100%;
-  }
-
-  li button {
-    width: auto;
   }
 }
 
@@ -175,17 +182,20 @@ p {
   }
 
   div {
-    padding: 15px;
+    width: 100%;
+    padding: 14px;
     border-radius: 8px;
   }
 
   form {
+    width: 100%;
     gap: 10px;
   }
 
   input[type="text"] {
     width: 100%;
     font-size: 0.95rem;
+    padding: 10px 12px;
   }
 
   button {
@@ -203,7 +213,6 @@ p {
 
   li span {
     width: 100%;
-    word-break: break-word;
   }
 
   li input[type="text"] {
